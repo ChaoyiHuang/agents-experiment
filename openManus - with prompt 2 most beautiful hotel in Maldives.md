@@ -1,7 +1,3 @@
-INFO     [browser_use] BrowserUse logging setup complete with level info
-
-INFO     [root] Anonymized telemetry enabled. See https://docs.browser-use.com/development/telemetry for more information.
-
 Enter your prompt: download 2 pictures for the most expensive and most beautiful hotel island in Maldives
 
 2025-03-28 17:16:09.278 | WARNING  | __main__:main:15 - Processing your request...
