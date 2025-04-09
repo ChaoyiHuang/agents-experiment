@@ -2,7 +2,7 @@
 
 ## OpenManus
 
-- provison a virtual machine with GUI image
+- provison a virtual machine with GUI (to see how brosweruse works)
 - install python3 and pip
 - follow the guide to install openManus: https://github.com/mannaandpoem/OpenManus?tab=readme-ov-file#method-2-using-uv-recommended
 - python main.py
