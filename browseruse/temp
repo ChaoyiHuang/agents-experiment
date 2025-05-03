@@ -1,2 +1,31 @@
-dont use, invalid
-xxxxx-8dGY5HGyixLq44raSbYwo
+a2a_server.start()
+  File "/home/ubuntu/version1/a2a/common/server/serve, line 59, in start
+    uvicorn.run(self.app, host=self.host, port=self.p
+  File "/home/ubuntu/version1/.venv/lib/python3.12/sickages/uvicorn/main.py", line 580, in run
+    server.run()
+  File "/home/ubuntu/version1/.venv/lib/python3.12/sickages/uvicorn/server.py", line 66, in run
+    return asyncio.run(self.serve(sockets=sockets))
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.12/asyncio/runners.py", line in run
+    raise RuntimeError(
+RuntimeError: asyncio.run() cannot be called from a rg event loop
+
+
+async def agent_server(host, port):
+    load_api_key()
+    agent_card = load_agent_card("deploy_agent_card.yaml")
+    agent_card.url = f"http://{host}:{port}/"
+
+    deploy_agent, exit_stack = await create_deploy_agent()
+    a2a_agent = A2AAgent(deploy_agent)
+    a2a_server = A2AServer(
+        agent_card=agent_card,
+        task_manager=AgentTaskManager(agent=a2a_agent),
+        host=host,
+        port=port,
+    )
+    a2a_server.start()
+    await exit_stack.aclose()
+
+if __name__ == "__main__":
+    asyncio.run(agent_server("localhost", 10003))
